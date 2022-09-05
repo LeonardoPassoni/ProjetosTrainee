@@ -16,7 +16,6 @@ public class TesteArrayReferencias {
        // pessoa1 = pessoa2; // Pessoa 1 aponta para onde Pessoa 2 esta apontando
 
 
-
         pessoas[0] = pessoa1;
         pessoas[1] = pessoa2;
 
