@@ -36,4 +36,11 @@ public class Escola {
         this.turmas = turmas;
     }
 
+
+    public void pesquisarAluno(String cpf){
+        for (Turma turma : this.turmas){
+            turma.pesquisarAluno(cpf);
+        }
+
+    }
 }

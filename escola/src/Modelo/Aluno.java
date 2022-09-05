@@ -53,10 +53,11 @@ public class Aluno {
     }
 
 
+
     @Override
     public String toString() {
         return
-                nome + ", "
+                "Nome: " + nome  + '\n'+ "CPF: "  + cpf + '\n'
                 ;
     }
 }

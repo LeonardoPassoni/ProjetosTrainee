@@ -12,7 +12,9 @@ public class Turma {
     ArrayList<Aluno> alunos;
 
 
-
+//    public Turma() {
+//        this.alunos = new ArrayList<Aluno>();
+//    }
 
     public String getSerie() {
         return serie;
@@ -37,5 +39,16 @@ public class Turma {
 
     public void setAlunos(ArrayList<Aluno> alunos) {
         this.alunos = alunos;
+    }
+
+    public Aluno pesquisarAluno(String cpf){
+
+        for (Aluno aluno : this.alunos){
+            if (aluno.getCpf().equals(cpf)){
+                System.out.println("O aluno está na turma" + this.identificador);
+                System.out.println(aluno);
+            }
+        }
+        return null;
     }
 }
