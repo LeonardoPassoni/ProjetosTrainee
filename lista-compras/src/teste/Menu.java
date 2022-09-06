@@ -1,27 +1,23 @@
 package teste;
 
-import controle.ControleProduto;
-import modelo.Compra;
+
 import modelo.Produto;
 
 public class Menu {
 
-    ControleProduto controleProduto = new ControleProduto();
+
 
     public void  iniciarMenu(){
         int opcao = 1;
 
 
         System.out.println("Menu Opcoes");
-        System.out.println("1 - Cadastrar Produtos");
-        System.out.println("2 - Cadastrar Clientes");
-        System.out.println("3 - Cadastrar Compras");
+        System.out.println("1 - Inserir  Produtos");
+        System.out.println("2 - Remover  Produtos");
 
         switch (opcao){
 
             case 1 :
-                Produto produto = new Produto();
-               controleProduto.cadastrarProduto();
 
             case 2 :
 
@@ -40,6 +36,7 @@ public class Menu {
         switch (opcao){
 
             case 1 :
+
             case 2 :
 
         }

@@ -1,6 +1,6 @@
 package modelo;
 
-public class Cliente {
+public class Cliente /*implements Comparable<Cliente>*/{
 
     private String codigo;
     private String nome;
@@ -37,4 +37,9 @@ public class Cliente {
                 ", CPF: " + cpf
                 ;
     }
+
+//    @Override
+//    public int compareTo(Cliente conta) {
+//        return this.getNome().compareTo(conta.getNome());
+//    }
 }
