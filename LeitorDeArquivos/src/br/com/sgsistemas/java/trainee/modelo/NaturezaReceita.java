@@ -1,23 +1,37 @@
 package br.com.sgsistemas.java.trainee.modelo;
 
+import java.text.NumberFormat;
+
 public class NaturezaReceita {
 
 
-    private int codigo;
+    private String codigo;
     private String descricaoProduto;
-    private String dtIni;
-    private String dtFim;
+    private String dataInicio;
+    private String dataFim;
     private String ncm;
     private String ncmEx;
-    private String ExIpi = null;
+    private String ExIpi;
     private Double alicotaPis = 0.00;
     private Double alicotaCofin = 0.00;
 
 
-//    public NaturezaReceita(String naturezaReceitaLine){
-//
-//    }
-    public void setCodigo(int codigo) {
+    public NaturezaReceita(String naturezaReceitaLinha){
+        String[] linha = naturezaReceitaLinha.split("\\|",10);
+
+        this.codigo = linha[0];
+        this.descricaoProduto = linha[1];
+        this.dataInicio = linha[2];
+        this.dataFim = linha[3];
+        this.ncm = linha[4];
+        this.ncmEx = linha[5];
+        this.ExIpi = linha[6];
+        if(linha.length > 7 ) {
+            this.alicotaPis = Double.parseDouble(linha[7].replace(",", "."));
+            this.alicotaCofin = Double.parseDouble(linha[8].replace(",", "."));
+        }
+    }
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -25,12 +39,13 @@ public class NaturezaReceita {
         this.descricaoProduto = descricaoProduto;
     }
 
-    public void setDtIni(String dtIni) {
-        this.dtIni = dtIni;
+
+    public void setDataInicio(String dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
-    public void setDtFim(String dtFim) {
-        this.dtFim = dtFim;
+    public void setDataFim(String dataFim) {
+        this.dataFim = dataFim;
     }
 
     public void setNcm(String ncm) {
@@ -58,8 +73,8 @@ public class NaturezaReceita {
         return  '\n'+"NaturezaReceita:" +
                 '\n'+ "Codigo: " + codigo +
                 '\n'+ "Descricao Produto: " + descricaoProduto +
-                '\n'+ "DtIni: " + dtIni +
-                '\n'+ "DtFim: " + dtFim +
+                '\n'+ "DtIni: " + dataFim +
+                '\n'+ "DtFim: " + dataInicio +
                 '\n'+ "NCM: " + ncm +
                 '\n'+ "NCMEX: " + ncmEx +
                 '\n'+ "ExIpi: " + ExIpi +

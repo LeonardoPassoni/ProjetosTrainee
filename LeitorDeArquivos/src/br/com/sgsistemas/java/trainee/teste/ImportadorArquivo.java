@@ -12,7 +12,7 @@ public class ImportadorArquivo {
 
 
         try {
-            gestorImportacao.importarArquivo("Tabela_4_3_10.txt");
+//            gestorImportacao.importarArquivo("Tabela_4_3_10.txt");
             gestorImportacao.importarArquivo("Tabela_4_3_12.txt");
             gestorImportacao.importarArquivo("Tabela_4_3_13.txt");
             gestorImportacao.importarArquivo("Tabela_4_3_14.txt");

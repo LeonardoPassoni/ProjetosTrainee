@@ -34,21 +34,21 @@ public class GestorImportacao {
                 String conteudoLinha = scanner.nextLine();
 
 
-                Scanner scannerConteudoLinha = new Scanner(conteudoLinha);
-                scannerConteudoLinha.useDelimiter("\\|");
+//                Scanner scannerConteudoLinha = new Scanner(conteudoLinha);
+//                scannerConteudoLinha.useDelimiter("\\|");
 
 
-                naturezaReceita = new NaturezaReceita();
+                naturezaReceita = new NaturezaReceita(conteudoLinha);
 
-                naturezaReceita.setCodigo((scannerConteudoLinha.nextInt()));
-                naturezaReceita.setDescricaoProduto(scannerConteudoLinha.next());
-                naturezaReceita.setDtIni(scannerConteudoLinha.next());
-                naturezaReceita.setDtFim(scannerConteudoLinha.next());
-                naturezaReceita.setNcm(scannerConteudoLinha.next());
-                naturezaReceita.setNcmEx(scannerConteudoLinha.next());
-                naturezaReceita.setExIpi(scannerConteudoLinha.next());
-                naturezaReceita.setAlicotaPis(scannerConteudoLinha.nextDouble());
-                naturezaReceita.setAlicotaCofin(scannerConteudoLinha.nextDouble());
+//                naturezaReceita.setCodigo((scannerConteudoLinha.next()));
+//                naturezaReceita.setDescricaoProduto(scannerConteudoLinha.next());
+//                naturezaReceita.setDtIni(scannerConteudoLinha.next());
+//                naturezaReceita.setDtFim(scannerConteudoLinha.next());
+//                naturezaReceita.setNcm(scannerConteudoLinha.next());
+//                naturezaReceita.setNcmEx(scannerConteudoLinha.next());
+//                naturezaReceita.setExIpi(scannerConteudoLinha.next());
+//                naturezaReceita.setAlicotaPis(scannerConteudoLinha.nextDouble());
+//                naturezaReceita.setAlicotaCofin(scannerConteudoLinha.nextDouble());
 
 
             } catch (NoSuchElementException e) {
