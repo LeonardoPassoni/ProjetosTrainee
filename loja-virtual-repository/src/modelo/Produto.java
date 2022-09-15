@@ -13,6 +13,15 @@ public class Produto {
         this.descricao = descricao;
     }
 
+    public Produto (String nome, String descricao){
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -25,11 +34,19 @@ public class Produto {
         this.descricao = descricao;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
     @Override
     public String toString() {
         return
                 "ID: " + this.id +
                '\n' + "Nome: " + this.nome +
-               '\n' + "Descricao: " + this.descricao ;
+               '\n' + "Descricao: " + this.descricao + '\n';
     }
 }

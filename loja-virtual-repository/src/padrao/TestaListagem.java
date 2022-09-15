@@ -12,8 +12,8 @@ public class TestaListagem {
 
 //        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/loja_virtual",
 //                "postgres" ,"senha1");
-
-       // Connection connection = CriaConexao.obterConexao();
+//
+//        Connection connection = CriaConexao.obterConexao();
 
         Statement stm = ConnectionFactory.obterConexao().createStatement();
 
