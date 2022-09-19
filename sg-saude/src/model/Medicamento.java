@@ -14,6 +14,17 @@ public class Medicamento {
         this.valor = valor;
     }
 
+    public Medicamento(int id, String nome, String descricao, double valor) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valor = valor;
+    }
+
+    public Medicamento() {
+
+    }
+
     public String getNome() {
         return nome;
     }
@@ -24,5 +35,20 @@ public class Medicamento {
 
     public double getValor() {
         return valor;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return
+                nome
+                ;
     }
 }

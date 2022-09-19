@@ -10,7 +10,7 @@ public class ConnectionFactory {
 
     public static Connection obterConexao(){
         try {
-            return DriverManager.getConnection("jdbc:postgresql://localhost/sg_saudel","postgres","senha1");
+            return DriverManager.getConnection("jdbc:postgresql://localhost/sg_saude","postgres","senha1");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
