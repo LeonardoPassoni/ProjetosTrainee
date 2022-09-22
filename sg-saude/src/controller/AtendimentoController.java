@@ -1,11 +1,9 @@
 package controller;
 
 import dao.AtendimentoDao;
-import dao.MedicoDao;
 import factory.ConnectionFactory;
 import model.Atendimento;
 import model.Medicamento;
-import model.Medico;
 import model.Servico;
 
 import java.util.List;
@@ -45,10 +43,11 @@ public class AtendimentoController {
     public void imprimirAtendimento(List<Atendimento> atendimentos){
 
         for(Atendimento atendimento: atendimentos){
+            System.out.println("Numero Atendimento: " + atendimento.getId());
             System.out.println("Medico: " + atendimento.getMedico().getNome());
             System.out.println("Paciente:" + atendimento.getPaciente().getNome());
             System.out.println("Data:" + atendimento.getDataAtendimento());
-            System.out.println("Medicamento:" + atendimento.getMedicamentos());
+            System.out.println("Medicamentos:" + atendimento.getMedicamentos());
             System.out.println("Servicos: " + atendimento.getServicos());
             System.out.println();
         }

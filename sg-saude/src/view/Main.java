@@ -71,7 +71,7 @@ public class Main {
 //        especialidade.setId(4);
 //        Date date = new Date();
 //        Medico medico = new Medico("Castro asdqweMachado ","48.213.456-86",date,"CRM/PR856478",especialidade);
-//        MedicoController medicoController = new MedicoController();
+   //     MedicoController medicoController = new MedicoController();
 //        medicoController.adicionar(medico);
 //        medicoController.remover(7);
 //         medico =  medicoController.buscar(3);
@@ -81,26 +81,27 @@ public class Main {
 //        medicos.forEach(medico1 -> System.out.println(medico1));
 
         Date date = new Date();
-        Paciente paciente = new Paciente(1,"Lucas Silva","65.456.847-76",date,
-                "Maria Helena","123456","Azul");
+        Paciente paciente = new Paciente(10,"Felipe Silva","45.569.852-75",date,
+                "Marta Alguma coisa","685463","Preta");
 
-        Especialidade especialidade = new Especialidade(5,"Clinico Geral");
+        Especialidade especialidade = new Especialidade(2,"Clinico Geral");
         Medico medico = new Medico(5,"Castro Machado ","48.213.456-86",date,"CRM/PR856478",especialidade);
 
-        Medicamento medicamento = new Medicamento(5,"Engov","Remedio para digestao",55.00);
+        Medicamento medicamento = new Medicamento(4,"Engov","Remedio para digestao",55.00);
 
         Servico servico = new Servico(3,"Raio-X",50);
 
-        Atendimento atendimento = new Atendimento(5,date,paciente,medico);
+        Atendimento atendimento = new Atendimento(8,date,paciente,medico);
 
+//        pacienteController.adicionar(paciente);
 
         AtendimentoController atendimentoController = new AtendimentoController();
 //        atendimentoController.adicionar(atendimento);
 //        atendimentoController.remover(2);
-//        atendimentoController.adicionarMedicamento(atendimento,medicamento);
-//        atendimentoController.adicionarServico(atendimento,servico);
+         atendimentoController.adicionarMedicamento(atendimento,medicamento);
+         atendimentoController.adicionarServico(atendimento,servico);
            List<Atendimento> atendimentos = atendimentoController.listar();
-      // atendimentos.forEach(atendimento1 -> System.out.println(atendimento1));
+//       atendimentos.forEach(atendimento1 -> System.out.println(atendimento1));
 
           atendimentoController.imprimirAtendimento(atendimentos);
 
