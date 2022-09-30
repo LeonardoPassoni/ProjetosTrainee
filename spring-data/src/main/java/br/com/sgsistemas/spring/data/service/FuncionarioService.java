@@ -1,20 +1,31 @@
 package br.com.sgsistemas.spring.data.service;
 
+import br.com.sgsistemas.spring.data.model.Cargo;
 import br.com.sgsistemas.spring.data.model.Funcionario;
+import br.com.sgsistemas.spring.data.model.Unidade;
+import br.com.sgsistemas.spring.data.repository.CargoRepository;
 import br.com.sgsistemas.spring.data.repository.FuncionarioRepository;
+import br.com.sgsistemas.spring.data.repository.UnidadeRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 @Service
 public class FuncionarioService {
 
     private final FuncionarioRepository funcionarioRepository;
+    private final CargoRepository cargoRepository;
+    private final UnidadeRepository unidadeRepository;
     private boolean system = true;
 
-    public FuncionarioService(FuncionarioRepository funcionarioRepository) {
+    public FuncionarioService(FuncionarioRepository funcionarioRepository, CargoRepository cargoRepository, UnidadeRepository unidadeRepository) {
         this.funcionarioRepository = funcionarioRepository;
+        this.cargoRepository = cargoRepository;
+        this.unidadeRepository = unidadeRepository;
     }
 
 
@@ -103,9 +114,35 @@ public class FuncionarioService {
         System.out.println("Data Contratação");
         funcionario.setDataContratacao(LocalDate.parse(scanner.next()));
 
+        System.out.println("Digite o id do seu cargo:");
+        Optional<Cargo> cargo = cargoRepository.findById(scanner.nextInt());
+        funcionario.setCargo(cargo.get());
+
+        List<Unidade> unidades = unidade(scanner);
+        funcionario.setUnidades(unidades);
+
         funcionarioRepository.save(funcionario);
 
 
 
+    }
+
+    private List<Unidade> unidade (Scanner scanner){
+        boolean isTrue = true;
+        List<Unidade> unidades = new ArrayList<>();
+
+        while (isTrue){
+            System.out.println("Digite o id da unidade(Para sair 0)");
+            Integer unidadeid = scanner.nextInt();
+
+            if(unidadeid != 0 ){
+                Optional<Unidade> unidade = unidadeRepository.findById(unidadeid);
+                unidades.add(unidade.get());
+
+            }else {
+                isTrue = false;
+            }
+        }
+        return unidades;
     }
 }

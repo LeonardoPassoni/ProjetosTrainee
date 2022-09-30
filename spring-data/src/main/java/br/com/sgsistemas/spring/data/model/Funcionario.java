@@ -1,6 +1,9 @@
 package br.com.sgsistemas.spring.data.model;
 
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,10 +20,16 @@ public class Funcionario {
     private String cpf;
     private BigDecimal salario;
     private LocalDate dataContratacao;
-  //  @OneToMany
-//    private Cargo cargo;
-//
-//    private List<Unidade> unidades;
+    @ManyToOne
+    @JoinColumn(name = "cargo_id",nullable = false)
+    private Cargo cargo;
+
+    @Fetch(FetchMode.SELECT)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "funcionarios_unidades",
+    joinColumns = {@JoinColumn(name = "fk_funcionario")},
+    inverseJoinColumns = {@JoinColumn(name = "fk_unidade")})
+    private List<Unidade> unidades;
 
 
     public Integer getId() {
@@ -63,21 +72,13 @@ public class Funcionario {
         this.dataContratacao = dataContratacao;
     }
 
-//    public Cargo getCargo() {
-//        return cargo;
-//    }
-//
-//    public void setCargo(Cargo cargo) {
-//        this.cargo = cargo;
-//    }
-//
-//    public List<Unidade> getUnidades() {
-//        return unidades;
-//    }
-//
-//    public void setUnidades(List<Unidade> unidades) {
-//        this.unidades = unidades;
-//    }
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
+
+    public void setUnidades(List<Unidade> unidades) {
+        this.unidades = unidades;
+    }
 
     @Override
     public String toString() {
@@ -87,6 +88,8 @@ public class Funcionario {
                 ", cpf='" + cpf + '\'' +
                 ", salario=" + salario +
                 ", dataContratacao=" + dataContratacao +
+                ", cargo=" + cargo +
+                ", unidades=" + unidades +
                 '}';
     }
 }

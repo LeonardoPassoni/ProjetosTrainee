@@ -2,6 +2,10 @@ package br.com.sgsistemas.spring.data.service;
 
 import br.com.sgsistemas.spring.data.model.Cargo;
 import br.com.sgsistemas.spring.data.repository.CargoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
@@ -43,7 +47,7 @@ public class CargoService {
                     break;
 
                 case 3:
-                    this.visualizar();
+                    this.visualizar(scanner);
                     break;
 
                 case 4:
@@ -76,10 +80,19 @@ public class CargoService {
 
     }
 
-    private void visualizar() {
-        Iterable<Cargo> cargos =  cargoRepository.findAll();
+    private void visualizar(Scanner scanner) {
+        System.out.println("Qual Pagina voce deseja Visualizar");
+        int page = scanner.nextInt();
+
+        Pageable pageable = PageRequest.of(page,50, Sort.by(Sort.Direction.ASC,"id"));
+        Page<Cargo> cargos =  cargoRepository.findAll(pageable);
+
         System.out.println("Cargos: ");
+
         cargos.forEach(cargo -> System.out.println(cargo));
+
+        System.out.println("Pagina Atual: " + cargos.getNumber() + " of " + cargos.getTotalPages());
+        System.out.println("Total Elementos: " + cargos.getTotalElements());
 //        cargos.forEach(System.out::println);
 
     }
@@ -87,9 +100,14 @@ public class CargoService {
     private void salvar(Scanner scanner) {
         System.out.println("Descricao do Cargo");
         String descricao = scanner.next();
-        Cargo cargo = new Cargo();
-        cargo.setDescricao(descricao);
-        this.cargoRepository.save(cargo);
+
+
+     //   for(int i = 0; i < 1000 ; i ++) {
+            Cargo cargo = new Cargo();
+      //      String descricao1 = descricao + i;
+            cargo.setDescricao(descricao);
+            this.cargoRepository.save(cargo);
+      //  }
         System.out.println("Salvo");
     }
 
