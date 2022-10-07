@@ -8,41 +8,40 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.*;
+import java.time.Instant;
+import java.util.Objects;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_category")
-public class Category implements Serializable {
+@AllArgsConstructor
+@Table(name = "tb_payment")
+public class Payment implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
 
+    private Instant moment;
+
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "order_id")
     @JsonIgnore
-    @ManyToMany(mappedBy = "categories")
-    private Set<Product> products = new HashSet<>();
-//    private List<Product> products = new ArrayList<>();
-
+    private Order order;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Category category = (Category) o;
-        return id.equals(category.id);
+        Payment payment = (Payment) o;
+        return Objects.equals(id, payment.id);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
-
-    public Category(Long id, String nome) {
-        this.id = id;
-        this.nome = nome;
     }
 }

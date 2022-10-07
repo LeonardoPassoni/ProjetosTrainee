@@ -8,14 +8,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_order")
-public class Order {
+public class Order implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +34,14 @@ public class Order {
     private User user;
     //@Enumerated(EnumType.STRING)
     private  Integer orderStatus;
+
+    @OneToMany(mappedBy = "id.order")
+    private Set<OrderItem> items = new HashSet<>();
+
+
+    @OneToOne(mappedBy = "order",cascade = CascadeType.ALL)
+    private Payment payment;
+
 
 
     public Order(Long id, Instant moment, User user, OrderStatus orderStatus) {
@@ -46,5 +59,26 @@ public class Order {
         if(orderStatus != null) {
             this.orderStatus = orderStatus.getCode();
         }
+    }
+
+    public Double getTotal(){
+        double sum = 0;
+        for (OrderItem orderItem : items){
+            sum += orderItem.getSubTotal();
+        }
+        return sum;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return id.equals(order.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
