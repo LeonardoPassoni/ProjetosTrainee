@@ -32,7 +32,6 @@ public class OrderItem implements Serializable {
         this.price = price;
         this.id.setOrder(order);
         this.id.setProduct(product);
-
     }
 
     @JsonIgnore
