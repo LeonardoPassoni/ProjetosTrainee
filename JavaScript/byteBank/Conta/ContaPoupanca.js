@@ -8,7 +8,10 @@ export class ContaPoupanca extends Conta{
         ContaPoupanca.numeroDeContas++
     }
 
-
+    sacar(valor){
+        const taxa = 1.1
+         super._sacar(valor,taxa)
+     }
   
 
 
