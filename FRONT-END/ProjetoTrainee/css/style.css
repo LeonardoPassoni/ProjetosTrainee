@@ -1,0 +1,59 @@
+header{
+
+    background-color: black;
+    /* color: rgb(206, 206, 206); */
+    color: mintcream;
+    height: 100px;
+    
+
+}
+
+.titulo{
+    display: inline-flex;
+    text-align: center;
+    margin-left: 35%;
+    vertical-align: top;
+
+}
+.logosgtrainee{
+    height: 100%;   
+    position: relative;
+    padding-left: 300px;
+
+
+    
+}
+.oque-aprendemos{
+    background-color: rgb(173, 171, 171);
+   text-align: left;
+   margin-left: 50px;
+   margin-right: 50px;
+}
+.sobreoprojeto{
+    text-align: justify;
+    background-color: rgb(173, 171, 171);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+/* .logojava{
+    padding-top: 20px;
+    height: 250px;
+    position: static;
+    margin-top: 10px;
+} */
+
+body{
+    margin: 0px;
+    background-color: rgb(206, 206, 206);
+   
+
+}
+
+footer{
+
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    color: mintcream;
+    text-align: center;
+}
