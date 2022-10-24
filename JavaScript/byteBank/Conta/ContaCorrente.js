@@ -11,12 +11,8 @@ export class ContaCorrente extends Conta{
     }
 
     sacar(valor){
-        let valorComtaixa = 1.1 * valor
-
-        if(valorComtaixa <= this.saldo){
-            this._saldo -= valorComtaixa
-            return valor
-        }
+       const taxa = 1.2
+        super._sacar(valor,taxa)
     }
     
   
