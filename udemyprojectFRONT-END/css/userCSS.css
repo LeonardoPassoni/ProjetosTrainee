@@ -1,0 +1,22 @@
+.jumbotron{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 20px;
+    color: mintcream;
+}
+
+body{
+    background-color: black;
+    
+}
+
+.table.table-striped tr *{
+    color: mintcream !important;
+   
+}
+
+.teste td{
+    color: crimson !important;
+}
