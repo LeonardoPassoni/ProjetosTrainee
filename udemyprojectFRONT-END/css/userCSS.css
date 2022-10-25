@@ -1,5 +1,6 @@
 .jumbotron{
     width: 800px;
+
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -19,4 +20,18 @@ body{
 
 .teste td{
     color: crimson !important;
+}
+
+
+.form-control {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alert.alert-danger{
+    margin-top: 30px;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
 }

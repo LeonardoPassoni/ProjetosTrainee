@@ -1,1 +1,1 @@
-angular.module("udemyProject",['ui.router']);
+angular.module("udemyProject",['ui.router',"ngMessages"]);

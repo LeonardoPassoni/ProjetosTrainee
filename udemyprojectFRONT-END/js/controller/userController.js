@@ -22,6 +22,9 @@ function ($scope, $http, userService, $stateParams,$state,$timeout){
         userService.saveUser(user).then(function(data){
             delete $scope.user;
             $scope.message = "Usuario salvo com sucesso";
+            $timeout(()=> {
+                delete $scope.message
+             },5000)
             loadUsers();
         });
         
