@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <link type="text/css" rel="stylesheet" href="lib/bootstrap/bootstrap.css">
+
+    <script src="lib/angular-1.8.2/angular.js"></script>
+    <script src="calculator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.js"></script>
+    <style type="text/css">
+        .well {
+
+            margin-bottom: 0px;
+
+        }
+    </style>
+
+</head>
+
+<body ng-app="app">
+
+    <div class="row">
+        <div class="col-sm-12 well" style="height:auto; min-height:100% !important;">
+            Header | <a ui-sref=root()>Home</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3 well">
+            <ul>
+
+                <li><a ui-sref="calc()">Calculator</a> </li>
+
+            </ul>
+        </div>
+        <div class="col-sm-9 well" style="height:auto; min-height:100% !important;">
+            <div ui-view></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

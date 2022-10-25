@@ -1,0 +1,17 @@
+<div>
+
+    <div>
+
+        <div ng-show="isLoading == true"> 
+            <span style="color:crimson">Loading... Please wait </span>
+         </div>
+
+        <div ng-hide="isLoading == true"> 
+            Calculated result : {{result}} 
+        </div>
+        <br>
+        <hr>
+        <button ng-click="goBack()">Back</button>
+    </div>
+
+</div>
